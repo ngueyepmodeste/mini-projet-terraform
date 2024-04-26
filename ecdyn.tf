@@ -1,11 +1,13 @@
 provider "aws" {
   region     = "us-east-1"
+  access_key = "your_access_key"
+  secret_key = "your_secret_key"
 }
 module "ec2" {
   source = "./modules/ec2"
   instance_name = "ec_modeste"
   instance_type = "t1.micro"
-  paire_key = "jenkins_key"
+  paire_key = "your_key_paire_ssh_connect"
   ip_public = module.eip.output_eip
   sg_name = module.security_group.output_sg_name
 
